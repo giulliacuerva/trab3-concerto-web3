@@ -1,4 +1,4 @@
-package com.example.demo.trab.veiculo;
+package com.example.demo.trab.model.veiculo;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

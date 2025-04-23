@@ -1,7 +1,7 @@
-package com.example.demo.trab.concerto;
+package com.example.demo.trab.model.conserto;
 
-import com.example.demo.trab.mecanico.Mecanico;
-import com.example.demo.trab.veiculo.Veiculo;
+import com.example.demo.trab.model.mecanico.Mecanico;
+import com.example.demo.trab.model.veiculo.Veiculo;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
-public class Concerto {
+public class Conserto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -35,7 +35,7 @@ public class Concerto {
     })
     private Veiculo veiculo;
 
-    public Concerto(DadosCadastroConcerto dados) {
+    public Conserto(DadosCadastroConserto dados) {
         this.dtEntrada = dados.dtEntrada();
         this.dtSaida = dados.dtSaida();
         this.mecanico = dados.mecanico();
