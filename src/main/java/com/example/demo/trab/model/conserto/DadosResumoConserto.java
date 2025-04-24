@@ -6,7 +6,7 @@ public record DadosResumoConserto (String dtInicio,
                                   String marca,
                                   String modelo){
     public DadosResumoConserto (Conserto conserto){
-        this(conserto.getDtEntrada(), conserto.getDtSaida(), conserto.getMecanico().getNome(),
-                conserto.getVeiculo().getMarca(), conserto.getVeiculo().getModelo());
+        this(conserto.getDtEntrada(), conserto.getDtSaida(), conserto.getMecanico().nome(),
+                conserto.getVeiculo().marca(), conserto.getVeiculo().modelo());
     }
 }

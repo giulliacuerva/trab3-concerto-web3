@@ -4,7 +4,7 @@ CREATE TABLE conserto (
     dt_saida VARCHAR(50) NOT NULL,
 
     mecanico_nome VARCHAR(100) NOT NULL,
-    mecanico_anos_experiencia VARCHAR(100) NOT NULL,
+    mecanico_anos_experiencia VARCHAR(100),
 
     veiculo_marca VARCHAR(100) NOT NULL,
     veiculo_modelo VARCHAR(100) NOT NULL,

@@ -5,7 +5,7 @@ import jakarta.validation.constraints.Pattern;
 
 public record DadosCadastroVeiculo(@NotBlank String  marca,
                                    @NotBlank String modelo,
-                                   @NotBlank @Pattern(regexp = "\\d{4}") String ano,
+                                   @NotBlank @Pattern(regexp = "^\\d{4}$") String ano,
                                     String cor) {
 
 }

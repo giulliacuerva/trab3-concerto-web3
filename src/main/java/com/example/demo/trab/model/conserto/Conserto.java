@@ -1,6 +1,8 @@
 package com.example.demo.trab.model.conserto;
 
+import com.example.demo.trab.model.mecanico.DadosCadastroMecanico;
 import com.example.demo.trab.model.mecanico.Mecanico;
+import com.example.demo.trab.model.veiculo.DadosCadastroVeiculo;
 import com.example.demo.trab.model.veiculo.Veiculo;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.*;
@@ -26,7 +28,7 @@ public class Conserto {
             @AttributeOverride(name = "nome", column = @Column(name = "mecanico_nome")),
             @AttributeOverride(name = "anosExperiencia", column = @Column(name = "mecanico_anos_experiencia"))
     })
-    private Mecanico mecanico;
+    private DadosCadastroMecanico mecanico;
     @Embedded
     @AttributeOverrides({
             @AttributeOverride(name = "marca", column = @Column(name = "veiculo_marca")),
@@ -34,7 +36,7 @@ public class Conserto {
             @AttributeOverride(name = "ano", column = @Column(name = "veiculo_ano")),
             @AttributeOverride(name = "cor", column = @Column(name = "veiculo_cor"))
     })
-    private Veiculo veiculo;
+    private DadosCadastroVeiculo veiculo;
 
     public Conserto(DadosCadastroConserto dados) {
         this.dtEntrada = dados.dtEntrada();
