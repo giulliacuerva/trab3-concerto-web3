@@ -30,7 +30,7 @@ public class ConsertoController {
                                                            UriComponentsBuilder uriBuilder) {
         DadosDetalhamentoConserto consertoDto = consertoService.cadastrar(dados);
 
-        var uri = uriBuilder.path("/conserto/{id}").buildAndExpand(consertoDto).toUri();
+        var uri = uriBuilder.path("/conserto/{id}").buildAndExpand(consertoDto.id()).toUri();
         return ResponseEntity.created(uri).body(consertoDto);
 
     }
