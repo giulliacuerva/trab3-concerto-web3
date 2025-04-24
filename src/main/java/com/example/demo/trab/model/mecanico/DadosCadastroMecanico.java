@@ -1,5 +1,8 @@
 package com.example.demo.trab.model.mecanico;
 
-public record DadosCadastroMecanico(String nome, String anosExperiencia) {
+import jakarta.validation.constraints.NotBlank;
+
+public record DadosCadastroMecanico(@NotBlank String nome,
+                                    String anosExperiencia) {
 
 }

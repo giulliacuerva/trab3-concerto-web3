@@ -13,10 +13,12 @@ public class Veiculo {
     private String marca;
     private String modelo;
     private String ano;
+    private String cor;
 
     public Veiculo(DadosCadastroVeiculo dados) {
         this.ano = dados.ano();
         this.modelo = dados.modelo();
         this.marca = dados.marca();
+        this.cor = dados.cor();
     }
 }

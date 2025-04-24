@@ -1,11 +1,12 @@
 package com.example.demo.trab.service;
 
-import com.example.demo.trab.model.conserto.Conserto;
-import com.example.demo.trab.model.conserto.ConsertoRepository;
-import com.example.demo.trab.model.conserto.DadosCadastroConserto;
-import com.example.demo.trab.model.conserto.DadosDetalhamentoConserto;
+import com.example.demo.trab.model.conserto.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class ConsertoService {
@@ -20,4 +21,11 @@ public class ConsertoService {
         return new DadosDetalhamentoConserto(conserto);
     }
 
+    public Page<Conserto> listarConsertos(Pageable paginacao) {
+        return repository.findAll(paginacao);
+    }
+
+    public List<DadosResumoConserto> resumirConsertos() {
+        return repository.findAll().stream().map(DadosResumoConserto::new).toList();
+    }
 }

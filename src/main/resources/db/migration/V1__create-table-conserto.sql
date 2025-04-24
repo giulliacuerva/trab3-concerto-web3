@@ -1,4 +1,4 @@
-CREATE TABLE concerto (
+CREATE TABLE conserto (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     dt_entrada VARCHAR(50) NOT NULL,
     dt_saida VARCHAR(50) NOT NULL,
