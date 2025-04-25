@@ -18,7 +18,7 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping("conserto")
+@RequestMapping("consertos")
 public class ConsertoController {
 
     @Autowired
@@ -30,7 +30,7 @@ public class ConsertoController {
                                                            UriComponentsBuilder uriBuilder) {
         DadosDetalhamentoConserto consertoDto = consertoService.cadastrar(dados);
 
-        var uri = uriBuilder.path("/conserto/{id}").buildAndExpand(consertoDto.id()).toUri();
+        var uri = uriBuilder.path("/consertos/{id}").buildAndExpand(consertoDto.id()).toUri();
         return ResponseEntity.created(uri).body(consertoDto);
 
     }
