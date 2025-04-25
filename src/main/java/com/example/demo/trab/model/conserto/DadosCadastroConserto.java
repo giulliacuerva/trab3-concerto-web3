@@ -13,5 +13,7 @@ public record DadosCadastroConserto(@NotBlank @Pattern(regexp = "^([0][1-9]|[12]
                                     @NotBlank @Pattern(regexp = "^([0][1-9]|[12][0-9]|3[01])/([0][1-9]|1[0-2])/\\d{4}$") String dtSaida,
                                     @NotNull @Valid DadosCadastroMecanico mecanico,
                                     @NotNull @Valid DadosCadastroVeiculo veiculo) {
-
+    public DadosCadastroConserto (Conserto conserto){
+        this(conserto.getDtEntrada(), conserto.getDtSaida(), new DadosCadastroMecanico(conserto.getMecanico()), new DadosCadastroVeiculo(conserto.getVeiculo()));
+    }
 }

@@ -15,6 +15,6 @@ public record DadosDetalhamentoConserto(Long id,
                                         @NotNull @Valid DadosCadastroVeiculo veiculo) {
     public DadosDetalhamentoConserto (Conserto conserto){
         this(conserto.getId(), conserto.getDtEntrada(), conserto.getDtSaida(),
-                conserto.getMecanico(), conserto.getVeiculo());
+                new DadosCadastroMecanico(conserto.getMecanico()), new DadosCadastroVeiculo(conserto.getVeiculo()));
     }
 }

@@ -1,16 +1,13 @@
 package com.example.demo.trab.controller;
 
-import com.example.demo.trab.model.conserto.Conserto;
-import com.example.demo.trab.model.conserto.DadosCadastroConserto;
-import com.example.demo.trab.model.conserto.DadosDetalhamentoConserto;
-import com.example.demo.trab.model.conserto.DadosResumoConserto;
+import com.example.demo.trab.model.conserto.*;
 import com.example.demo.trab.service.ConsertoService;
-import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
@@ -49,5 +46,25 @@ public class ConsertoController {
         return ResponseEntity.ok(consertos);
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<DadosDetalhamentoConserto> listarConsertoPorId(@PathVariable Long id){
+        DadosDetalhamentoConserto consertoEscolhido = consertoService.listarConserto(id);
 
+        return ResponseEntity.ok(consertoEscolhido);
+    }
+
+    @PutMapping
+    @Transactional
+    public ResponseEntity<DadosDetalhamentoConserto> atualizarConserto(@RequestBody @Valid DadosAtualizacaoConserto dados){
+        DadosDetalhamentoConserto consertoAtualizado = consertoService.atualizarConserto(dados);
+
+        return ResponseEntity.ok(consertoAtualizado);
+    }
+
+    @DeleteMapping("/{id}")
+    @Transactional
+    public ResponseEntity<Void> finalizarConserto(@PathVariable Long id){
+        consertoService.finalizarConserto(id);
+        return ResponseEntity.ok().build();
+    }
 }
