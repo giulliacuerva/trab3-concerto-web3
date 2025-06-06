@@ -1,7 +1,7 @@
 package com.example.demo.trab.controller;
 
 import com.example.demo.trab.model.conserto.*;
-import com.example.demo.trab.service.ConsertoService;
+import com.example.demo.trab.model.service.ConsertoService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

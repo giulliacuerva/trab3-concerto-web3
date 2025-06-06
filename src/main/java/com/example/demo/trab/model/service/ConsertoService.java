@@ -1,4 +1,4 @@
-package com.example.demo.trab.service;
+package com.example.demo.trab.model.service;
 
 import com.example.demo.trab.model.conserto.*;
 import org.springframework.beans.factory.annotation.Autowired;
