@@ -3,7 +3,6 @@ package com.example.demo.trab.controller;
 import com.example.demo.trab.model.conserto.*;
 import com.example.demo.trab.service.ConsertoService;
 import jakarta.validation.Valid;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
@@ -18,8 +17,11 @@ import java.util.List;
 @RequestMapping("consertos")
 public class ConsertoController {
 
-    @Autowired
     private ConsertoService consertoService;
+
+    public ConsertoController(ConsertoService consertoService) {
+        this.consertoService = consertoService;
+    }
 
     @PostMapping
     @Transactional

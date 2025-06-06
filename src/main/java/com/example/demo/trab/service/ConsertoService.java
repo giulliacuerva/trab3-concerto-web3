@@ -1,22 +1,23 @@
 package com.example.demo.trab.service;
 
 import com.example.demo.trab.model.conserto.*;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.example.demo.trab.persistence.ConsertoRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
-import java.net.http.HttpRequest;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class ConsertoService {
 
-    @Autowired
     private ConsertoRepository repository;
+
+    public ConsertoService(ConsertoRepository repository) {
+        this.repository = repository;
+    }
 
     public DadosDetalhamentoConserto cadastrar(DadosCadastroConserto dadosConserto){
         Conserto conserto = new Conserto(dadosConserto);
