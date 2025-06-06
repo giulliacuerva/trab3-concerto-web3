@@ -1,7 +1,6 @@
-package com.example.demo.trab.model.service;
+package com.example.demo.trab.service;
 
-import com.example.demo.trab.model.usuario.UsuarioRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.example.demo.trab.persistence.UsuarioRepository;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -10,8 +9,11 @@ import org.springframework.stereotype.Service;
 @Service
 public class AutenticacaoService implements UserDetailsService {
 
-    @Autowired
-    UsuarioRepository repository;
+    private UsuarioRepository repository;
+
+    public AutenticacaoService(UsuarioRepository repository) {
+        this.repository = repository;
+    }
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
